@@ -10,27 +10,28 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* Стили для идеальной типографики */
-    .article-header { max-width: 900px; margin: 60px auto 40px; padding: 0 24px; text-align: center; }
+    .article-header { max-width: 900px; margin: 80px auto 48px; padding: 0 24px; text-align: center; }
     .article-meta { display: flex; justify-content: center; gap: 16px; font-size: 14px; color: var(--ink-3); margin-bottom: 24px; font-weight: 500; }
-    .article-title { font-size: clamp(32px, 5vw, 56px); margin-bottom: 24px; line-height: 1.15; }
+    .article-title { font-size: clamp(36px, 5vw, 64px); margin-bottom: 24px; line-height: 1.1; letter-spacing: -0.03em; }
     
-    .article-cover { max-width: 1200px; margin: 0 auto 60px; height: 450px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; }
-    .article-cover svg { width: 80px; height: 80px; opacity: 0.5; }
-    .cover-indigo { background: var(--indigo-soft); color: var(--indigo); }
-    .cover-emerald { background: var(--emerald-soft); color: var(--emerald); }
-    .cover-amber { background: var(--amber-soft); color: var(--amber); }
-    .cover-violet { background: #F0EAFA; color: var(--violet); }
+    .article-cover { max-width: 1200px; margin: 0 auto 64px; height: 450px; border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; }
+    .article-cover svg { width: 100px; height: 100px; opacity: 0.4; }
+    .cover-indigo { background: var(--primary-soft); color: var(--primary); }
+    .cover-emerald { background: var(--primary-soft); color: var(--primary); }
+    .cover-amber { background: var(--accent-soft); color: var(--accent); }
+    .cover-violet { background: var(--bg-subtle); color: var(--ink-2); }
     
-    .article-content { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; font-size: 19px; line-height: 1.8; color: var(--ink-2); }
-    .article-content p { margin-bottom: 28px; }
-    .article-content h2 { font-size: 32px; margin: 48px 0 24px; color: var(--ink); }
-    .article-content h3 { font-size: 24px; margin: 32px 0 16px; color: var(--ink); }
-    .article-content ul, .article-content ol { margin-bottom: 28px; padding-left: 24px; }
-    .article-content li { margin-bottom: 12px; }
-    .article-content blockquote { border-left: 4px solid var(--emerald); padding: 20px 28px; margin: 40px 0; background: var(--bg); border-radius: 0 12px 12px 0; font-style: italic; color: var(--ink); font-size: 20px; }
+    .article-content { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; font-size: 19px; line-height: 1.8; color: var(--ink-2); }
+    .article-content p { margin-bottom: 32px; }
+    .article-content h2 { font-size: 32px; margin: 56px 0 24px; color: var(--ink); letter-spacing: -0.02em; }
+    .article-content h3 { font-size: 24px; margin: 40px 0 16px; color: var(--ink); }
+    .article-content ul, .article-content ol { margin-bottom: 32px; padding-left: 24px; }
+    .article-content li { margin-bottom: 16px; }
+    .article-content blockquote { border-left: 4px solid var(--primary); padding: 24px 32px; margin: 48px 0; background: var(--bg-subtle); border-radius: 0 20px 20px 0; font-style: italic; color: var(--ink); font-size: 22px; font-weight: 500; }
     
     @media (max-width: 768px) {
-      .article-cover { height: 250px; }
+      .article-cover { height: 250px; border-radius: var(--radius-lg); margin-bottom: 40px; }
+      .article-title { font-size: 32px; }
     }
   </style>
 </head>
@@ -39,7 +40,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand">
-        <img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo">
+        <img src="logo.png" alt="ArturExpert" class="brand-logo">
       </a>
       <nav class="main-nav">
         <a href="index.html">Главная</a>
@@ -51,9 +52,8 @@
     </div>
   </header>
 
-  <!-- Сюда скрипт вставит статью целиком -->
   <article id="article-container">
-    <div style="text-align: center; padding: 100px 20px; color: var(--ink-3);">
+    <div style="text-align: center; padding: 120px 20px; color: var(--ink-3);">
       Загрузка статьи...
     </div>
   </article>
@@ -61,7 +61,7 @@
   <footer class="site-footer" style="margin-top: 0;">
     <div class="footer-inner">
       <div class="footer-brand">
-        Artur<b style="color:var(--indigo)">Expert</b>
+        Artur<b style="color:var(--primary)">Expert</b>
       </div>
       <div class="footer-note">© 2026 ArturExpert</div>
     </div>
