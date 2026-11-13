@@ -18,13 +18,36 @@
       </a>
       <nav class="main-nav">
         <a href="index.html">Главная</a>
-        <a href="calculations.html">Расчеты</a>
+        <a href="calculations.html">Инструменты</a>
         <a href="materials.html" class="active">Материалы</a>
         <a href="index.html#about">О журнале</a>
       </nav>
-      <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
+      <div class="header-actions">
+        <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
+        <button class="menu-toggle" aria-label="Открыть меню">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
     </div>
   </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo">
+      </a>
+      <button class="menu-close" aria-label="Закрыть меню">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Главная</a>
+      <a href="calculations.html">Инструменты</a>
+      <a href="materials.html" class="active">Материалы</a>
+      <a href="index.html#about">О журнале</a>
+      <a href="calculations.html" class="btn btn-primary">Открыть калькулятор</a>
+    </nav>
+  </div>
 
   <section class="section" style="padding-top: 60px;">
     <div class="section-head">
@@ -32,12 +55,12 @@
       <h2>Журнал ArturExpert</h2>
       <p>Глубокие статьи, разборы мировых трендов, новости клиентского сервиса и методологии построения сервиса с нуля.</p>
     </div>
-
     <div class="materials-grid" id="articles-grid">
       <p>Загрузка статей...</p>
     </div>
   </section>
 
   <script src="assets/js/articles.js"></script>
+  <script src="assets/js/menu.js"></script>
 </body>
 </html>
