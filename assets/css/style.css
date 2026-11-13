@@ -91,7 +91,7 @@ h1, h2, h3, h4 {
 .btn-lg { padding: 18px 36px; font-size: 16px; }
 .btn-block { width: 100%; }
 
-/* ==================== Header & Dropdown Navigation ==================== */
+/* ==================== Header & Navigation ==================== */
 .site-header {
   position: sticky;
   top: 0;
@@ -203,34 +203,25 @@ h1, h2, h3, h4 {
 .mobile-nav a.active { color: var(--primary); }
 .mobile-nav .btn { margin-top: 24px; font-size: 18px; padding: 20px; width: 100%; }
 
-/* ==================== Hero ==================== */
-.hero {
-  position: relative; padding: 96px 48px 80px;
-  background: var(--bg-subtle); border-bottom: 1px solid var(--border);
+/* ==================== Заголовки страниц (Компактные) ==================== */
+.page-header-compact {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 48px 20px;
 }
-.hero-inner { max-width: 1440px; margin: 0 auto; position: relative; z-index: 2; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--bg); border: 1px solid var(--border);
-  padding: 8px 18px; border-radius: 999px;
-  font-size: 14px; font-weight: 600; color: var(--ink-2);
-  margin-bottom: 32px; box-shadow: var(--shadow-sm);
+.page-header-compact h1 {
+  font-size: clamp(28px, 3vw, 38px);
+  margin-bottom: 12px;
 }
-.hero-badge svg { width: 16px; height: 16px; color: var(--primary); }
-.hero h1 { font-size: clamp(40px, 5vw, 72px); max-width: 1000px; margin-bottom: 24px; }
-.hero h1 span { color: var(--primary); }
-.hero-sub { font-size: clamp(16px, 1.8vw, 20px); color: var(--ink-2); max-width: 800px; margin-bottom: 40px; line-height: 1.6; }
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
+.page-header-compact p {
+  font-size: 16px;
+  color: var(--ink-2);
+  max-width: 700px;
+}
 
 /* ==================== Секции ==================== */
-.section { max-width: 1440px; margin: 0 auto; padding: 80px 48px; width: 100%; }
-.section-head { max-width: 800px; margin-bottom: 56px; }
-.section-eyebrow {
-  display: inline-block; font-family: var(--font-mono); font-size: 13px; font-weight: 700;
-  letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
-}
-.section-head h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px; }
-.section-head p { font-size: 18px; color: var(--ink-2); }
+.section { max-width: 1440px; margin: 0 auto; padding: 40px 48px 80px; width: 100%; }
+.section-head { max-width: 800px; margin-bottom: 40px; }
 
 /* Анимированное подчеркивание */
 .animated-underline {
@@ -326,100 +317,112 @@ h1, h2, h3, h4 {
   margin-bottom: 24px;
 }
 
-/* ==================== Materials (Журнал) ==================== */
-.materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
-.material-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); text-decoration: none; color: inherit; }
-.material-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.material-cover { height: 180px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); }
-.material-cover svg { width: 56px; height: 56px; opacity: 0.9; }
-.cover-indigo, .cover-emerald { background: var(--primary-soft); color: var(--primary); }
-.cover-amber { background: var(--accent-soft); color: var(--accent); }
-.cover-violet { background: #F3F4F6; color: var(--ink-2); }
-.material-body { padding: 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-.material-tag { display: inline-block; align-self: flex-start; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 6px 12px; border-radius: 999px; }
-.material-card h3 { font-size: 20px; line-height: 1.3; }
-.material-card p { font-size: 15px; color: var(--ink-2); flex: 1; line-height: 1.6; }
+/* ==================== FCR Calculator (Игровой стиль) ==================== */
+.fcr-layout {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 48px 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
 
-/* ==================== About (Блоки) ==================== */
-.about-card { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 64px; align-items: center; }
-.about-text h2 { font-size: clamp(28px, 3.2vw, 40px); margin-bottom: 20px; }
-.about-text p { font-size: 16px; color: var(--ink-2); margin-bottom: 24px; }
-.check-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-.check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; color: var(--ink); font-weight: 500; }
-.check-list svg { width: 24px; height: 24px; flex-shrink: 0; color: var(--primary); }
-.about-visual { display: flex; justify-content: center; }
-.about-visual-inner { width: 100%; max-width: 300px; aspect-ratio: 1; border-radius: 32px; background: var(--bg); display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); box-shadow: var(--shadow-md); }
-.about-visual-inner svg { width: 50%; height: 50%; color: var(--primary); }
+.fcr-results {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-/* ==================== Calculator Page ==================== */
-.calc-layout { max-width: 1440px; margin: 0 auto; padding: 32px 48px 96px; display: grid; grid-template-columns: 400px 1fr; gap: 32px; align-items: start; }
-.input-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md); position: sticky; top: 100px; }
-.input-panel h2 { font-size: 16px; font-weight: 800; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
-.input-panel h2 svg { width: 20px; height: 20px; color: var(--primary); }
-.form-group { margin-bottom: 20px; }
-.form-group label { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-display); }
-.form-group label span { font-size: 12px; color: var(--ink-3); font-weight: 500; font-family: var(--font-sans); }
-.input-wrapper { position: relative; display: flex; align-items: center; }
-.input-wrapper input { width: 100%; padding: 16px 64px 16px 20px; border-radius: 16px; border: 1.5px solid var(--border); font-family: var(--font-mono); font-size: 16px; font-weight: 600; color: var(--ink); transition: all 0.2s; background: var(--bg-subtle); }
-.input-wrapper input:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px var(--primary-soft); }
-.input-suffix { position: absolute; right: 20px; font-size: 13px; font-weight: 600; color: var(--ink-3); pointer-events: none; }
-.divider { height: 1px; background: var(--border); margin: 28px 0; }
+/* Круглый индикатор FCR */
+.fcr-score-container {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin-bottom: 32px;
+}
+.fcr-score-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fcr-score-value span {
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+}
+.fcr-score-value small {
+  font-size: 14px;
+  color: var(--ink-3);
+  font-weight: 600;
+  margin-top: 8px;
+}
 
-.results-panel { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
-.kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-.kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; position: relative; transition: transform 0.2s, box-shadow 0.2s; box-shadow: var(--shadow-sm); }
-.kpi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.kpi-title { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
-.kpi-value { font-family: var(--font-mono); font-size: 36px; font-weight: 800; line-height: 1; }
-.kpi-card.primary .kpi-value { color: var(--primary); }
-.kpi-card.success .kpi-value { color: var(--primary); }
-.kpi-card.warning .kpi-value { color: var(--accent); }
-.kpi-card.danger .kpi-value { color: var(--ink-2); }
-.kpi-sub { font-size: 14px; color: var(--ink-3); margin-top: 12px; font-weight: 500; }
+/* Блок с деньгами */
+.money-impact {
+  width: 100%;
+  background: var(--bg-subtle);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 24px;
+  text-align: left;
+}
+.money-impact h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.money-impact .amount {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.money-impact p {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin-top: 8px;
+}
 
-.insight-box { background: var(--primary-soft); border: 1px solid #D1FAE5; border-radius: var(--radius); padding: 24px; display: flex; align-items: flex-start; gap: 16px; }
-.insight-icon { color: var(--primary); flex-shrink: 0; margin-top: 2px; }
-.insight-icon svg { width: 24px; height: 24px; }
-.insight-text { font-size: 16px; line-height: 1.6; color: var(--ink-2); font-weight: 500; }
-.insight-text strong { color: var(--primary-hover); font-weight: 800; }
-
-.chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
-.chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
-.chart-title { font-family: var(--font-display); font-size: 18px; font-weight: 800; }
-.chart-legend { font-size: 14px; font-weight: 600; color: var(--ink-2); background: var(--bg-subtle); padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); }
-.chart-legend span { color: var(--primary); font-weight: 700; }
-.chart-wrapper { position: relative; height: 400px; }
-
-/* Footer */
-.site-footer { margin-top: auto; border-top: 1px solid var(--border); padding: 48px; background: var(--surface); }
-.footer-inner { max-width: 1440px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.footer-brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 18px; }
-.footer-note { font-size: 14px; color: var(--ink-3); }
+/* Анимация пульсации для плохого результата */
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+.pulse-warning { animation: pulse-red 2s infinite; }
 
 /* ==================== Mobile Optimization ==================== */
 @media (max-width: 1024px) {
-  .calc-layout { grid-template-columns: 1fr; }
-  .input-panel { position: static; }
+  .fcr-layout { grid-template-columns: 1fr; }
   .main-nav { display: none; }
   .menu-toggle { display: flex; }
   .header-inner { padding: 12px 24px; justify-content: space-between; }
   .header-actions { margin-left: auto; }
   .dropdown-menu { display: none; }
-  .about-card { grid-template-columns: 1fr; padding: 40px; gap: 40px; }
+  .page-header-compact { padding: 32px 24px 16px; }
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 64px 20px; }
-  .section { padding: 64px 20px; }
-  .kpi-grid { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn { width: 100%; }
-  .calc-layout, .breadcrumbs { padding-left: 20px; padding-right: 20px; }
-  .chart-wrapper { height: 300px; }
-  .site-footer { padding: 32px 20px; }
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .section { padding: 24px 20px 64px; }
+  .fcr-layout { padding: 20px 20px 64px; gap: 24px; }
+  .fcr-results { padding: 32px 20px; }
   .brand-logo { height: 48px; }
-  .header-cta { display: none; }
   .hub-grid { grid-template-columns: 1fr; }
-  .materials-grid { grid-template-columns: 1fr; }
+  .page-header-compact { padding: 24px 20px 16px; }
 }
