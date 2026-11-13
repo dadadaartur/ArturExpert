@@ -1,7 +1,9 @@
 /* ============================================================
    Калькулятор Erlang C — логика
    ============================================================ */
-const API_ENDPOINT = ''; // ← сюда вставим URL функции ONREZA позже
+
+// URL вашей серверной функции в ONREZA
+const API_ENDPOINT = 'https://artur-expert-api-arturgalkin-ru-kg7i.onreza.app/save-erlang'; 
 
 // ============ Математика Erlang C ============
 function factorial(n) {
@@ -90,22 +92,33 @@ function updateCalculator() {
   // График
   updateChart(traffic, totalHandleTime, targetTime, agents);
 
-  // Запись в БД (если endpoint задан)
+  // ==========================================
+  // ОТПРАВКА ДАННЫХ В БАЗУ ONREZA
+  // ==========================================
   if (API_ENDPOINT) {
-    fetch(API_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        calls, aht, acw,
-        target_sla: targetSla,
-        target_time: targetTime,
-        recommended_agents: agents,
-        actual_sla: finalSla,
-      }),
-    })
-    .then(r => r.json())
-    .then(d => console.log('Сохранено в ONREZA, ID:', d.id))
-    .catch(err => console.warn('ONREZA пока не подключён:', err.message));
+    // Используем debounce, чтобы не спамить базу при каждом нажатии клавиши
+    clearTimeout(window.saveTimeout);
+    window.saveTimeout = setTimeout(() => {
+      fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          calls: calls,
+          aht: aht,
+          acw: acw,
+          target_sla: targetSla,
+          target_time: targetTime,
+          recommended_agents: agents,
+          actual_sla: finalSla,
+        }),
+      })
+      .then(r => {
+        if(!r.ok) throw new Error('Network response was not ok');
+        return r.json();
+      })
+      .then(d => console.log('✅ Успешно сохранено в БД, ID:', d.id))
+      .catch(err => console.warn('❌ Ошибка сохранения в ONREZA:', err.message));
+    }, 1500); // Ждем 1.5 секунды после последнего ввода
   }
 }
 
