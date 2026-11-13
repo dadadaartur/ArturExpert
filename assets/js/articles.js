@@ -1,16 +1,22 @@
 /* ============================================================
-   Модуль загрузки статей из Табрики
+   Модуль загрузки статей из Табрики (Production-Ready)
    ============================================================ */
 
-// ⚠️ ВАЖНО: Вставьте ваш токен (только для чтения) в строку ниже:
-const ARTICLES_TOKEN = 'tab__tYFHBqzn7dOgtI9aG1P2a_p-vkcF1lV1BI0UTTHyfll-N_dvWpUMrkfxlyPiFNL'; 
-
-// Эти ID я уже взял из вашей ссылки:
+const ARTICLES_TOKEN = 'tab_xxBPQ6i9QSzUMBJt63LK2QMLcW-7paEQ7RHHfcUvx32vHnbv3C9fs8yW0-AzF_hH'; 
 const DB_ID = '348'; 
 const ARTICLES_TABLE_ID = '512'; 
 
 const API_BASE = `https://api.tabrica.ru/public/v1/databases/${DB_ID}/tables/${ARTICLES_TABLE_ID}/records`;
-const API_PARAMS = `?response_format=names&rich_text=html`; // Просим Табрику вернуть HTML-текст
+const API_PARAMS = `?response_format=names&rich_text=html`;
+
+// Красивая заглушка для пустого состояния
+const emptyStateHTML = `
+  <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: var(--bg-subtle); border-radius: var(--radius-lg); border: 1px dashed var(--border);">
+    <svg style="width: 48px; height: 48px; margin: 0 auto 16px; color: var(--ink-3);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+    <h3 style="font-size: 20px; color: var(--ink); margin-bottom: 8px;">Здесь пока тихо</h3>
+    <p style="color: var(--ink-3); font-size: 15px;">Первые материалы уже готовятся к публикации.</p>
+  </div>
+`;
 
 // ==========================================
 // 1. ЗАГРУЗКА СПИСКА СТАТЕЙ (для materials.html)
@@ -23,18 +29,25 @@ async function loadArticlesList() {
     const res = await fetch(API_BASE + API_PARAMS, {
       headers: { 'Authorization': `Bearer ${ARTICLES_TOKEN}` }
     });
+    
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    
     const json = await res.json();
-    const articles = json.data || [];
+    
+    // Защита: проверяем, что data — это массив. 
+    // Если Табрика вернула объект с вложенным массивом, тоже обработаем.
+    const articles = Array.isArray(json.data) ? json.data : (json.data?.records || []);
 
     if (articles.length === 0) {
-      container.innerHTML = '<p>Пока нет опубликованных статей.</p>';
+      container.innerHTML = emptyStateHTML;
       return;
     }
 
     container.innerHTML = articles.map(article => {
       const color = article.cover_color || 'indigo';
-      // Очищаем HTML-теги из текста для краткого описания в карточке
-      const plainText = article.content.replace(/<[^>]*>?/gm, '');
+      // Безопасное извлечение текста, если контента вдруг нет
+      const rawContent = article.content || '';
+      const plainText = rawContent.replace(/<[^>]*>?/gm, '');
       const previewText = plainText.length > 120 ? plainText.substring(0, 120) + '...' : plainText;
 
       return `
@@ -55,8 +68,10 @@ async function loadArticlesList() {
     }).join('');
 
   } catch (error) {
+    // В консоль пишем настоящую ошибку для разработчика
     console.error('Ошибка загрузки статей:', error);
-    container.innerHTML = '<p>Не удалось загрузить статьи. Проверьте консоль браузера (F12).</p>';
+    // А пользователю показываем красивую заглушку
+    container.innerHTML = emptyStateHTML;
   }
 }
 
@@ -67,34 +82,33 @@ async function loadSingleArticle() {
   const container = document.getElementById('article-container');
   if (!container) return;
 
-  // Берем slug из URL (например, article.html?slug=smert-csat)
   const urlParams = new URLSearchParams(window.location.search);
   const slug = urlParams.get('slug');
 
   if (!slug) {
-    container.innerHTML = '<h1>Статья не найдена</h1><p>Не указан идентификатор статьи.</p>';
+    container.innerHTML = '<div style="text-align: center; padding: 100px 20px;"><h1>Статья не найдена</h1><p style="color: var(--ink-3); margin-top: 16px;">Не указан идентификатор статьи.</p></div>';
     return;
   }
 
   try {
-    // Фильтруем записи по полю slug. 
-    // Кодируем URL на случай, если в slug есть спецсимволы
     const filter = `&where=${encodeURIComponent(`(slug,eq,${slug})`)}`;
     const res = await fetch(API_BASE + API_PARAMS + filter, {
       headers: { 'Authorization': `Bearer ${ARTICLES_TOKEN}` }
     });
+
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
     const json = await res.json();
-    const article = json.data && json.data[0];
+    const articles = Array.isArray(json.data) ? json.data : (json.data?.records || []);
+    const article = articles[0];
 
     if (!article) {
-      container.innerHTML = '<h1>Статья не найдена</h1><p>Возможно, она была удалена или ссылка неверна.</p>';
+      container.innerHTML = '<div style="text-align: center; padding: 100px 20px;"><h1>Статья не найдена</h1><p style="color: var(--ink-3); margin-top: 16px;">Возможно, она была удалена или ссылка неверна.</p><a href="materials.html" class="btn btn-primary" style="margin-top: 24px;">Вернуться к материалам</a></div>';
       return;
     }
 
-    // Обновляем title страницы
     document.title = `${article.title} — ArturExpert`;
 
-    // Рисуем страницу
     container.innerHTML = `
       <header class="article-header">
         <div class="article-meta">
@@ -110,13 +124,13 @@ async function loadSingleArticle() {
       </div>
 
       <div class="article-content">
-        ${article.content}
+        ${article.content || '<p>Текст статьи пока пуст.</p>'}
       </div>
     `;
 
   } catch (error) {
     console.error('Ошибка загрузки статьи:', error);
-    container.innerHTML = '<h1>Ошибка</h1><p>Не удалось загрузить статью. Проверьте консоль.</p>';
+    container.innerHTML = '<div style="text-align: center; padding: 100px 20px;"><h1>Не удалось загрузить статью</h1><p style="color: var(--ink-3); margin-top: 16px;">Пожалуйста, попробуйте обновить страницу позже.</p><a href="materials.html" class="btn btn-primary" style="margin-top: 24px;">Вернуться к материалам</a></div>';
   }
 }
 
