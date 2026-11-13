@@ -15,20 +15,44 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand">
-        <!-- ПРАВИЛЬНЫЙ ПУТЬ: assets/img/logo.png -->
         <img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo">
       </a>
+      
       <nav class="main-nav">
         <a href="index.html" class="active">Главная</a>
-        <a href="calculations.html">Расчеты</a>
+        <a href="calculations.html">Инструменты</a>
         <a href="materials.html">Материалы</a>
         <a href="#about">О журнале</a>
       </nav>
-      <a href="calculations.html" class="btn btn-primary btn-sm header-cta">
-        Открыть калькулятор
-      </a>
+
+      <div class="header-actions">
+        <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
+        <!-- Кнопка Бургер -->
+        <button class="menu-toggle" aria-label="Открыть меню">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Полноэкранное мобильное меню -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo">
+      </a>
+      <button class="menu-close" aria-label="Закрыть меню">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html" class="active">Главная</a>
+      <a href="calculations.html">Инструменты</a>
+      <a href="materials.html">Материалы</a>
+      <a href="#about">О журнале</a>
+      <a href="calculations.html" class="btn btn-primary">Открыть калькулятор</a>
+    </nav>
+  </div>
 
   <main>
     <!-- HERO -->
@@ -68,9 +92,7 @@
       <div class="tools-grid">
         <a href="calculations.html" class="tool-card tool-green">
           <div class="tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
           </div>
           <h3>Erlang C калькулятор</h3>
           <p>Сколько операторов нужно, чтобы соблюдать SLA и не выжечь команду перегрузкой.</p>
@@ -80,9 +102,7 @@
         <div class="tool-card tool-yellow is-soon">
           <span class="badge-soon">Скоро</span>
           <div class="tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-6"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-6"/></svg>
           </div>
           <h3>KPI контакт-центра</h3>
           <p>Occupancy, AHT, FCR, CSAT — считайте по своим данным в один клик.</p>
@@ -91,9 +111,7 @@
         <div class="tool-card tool-gray is-soon">
           <span class="badge-soon">Скоро</span>
           <div class="tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
           </div>
           <h3>Стоимость часа оператора</h3>
           <p>Полная стоимость с учётом накладных расходов и текучести кадров.</p>
@@ -109,26 +127,14 @@
           <h2>Экспертиза, проверенная практикой</h2>
           <p>ArturExpert — онлайн-журнал для тех, кто делает клиентский сервис измеримым и прибыльным. Здесь нет «10 секретов успеха» — только математика, метрики и инструменты, которые работают.</p>
           <ul class="check-list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Проверенные формулы Erlang C, SLA и KPI
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Данные хранятся на серверах в РФ (152-ФЗ)
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Инструменты, готовые к работе без Excel
-            </li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Проверенные формулы Erlang C, SLA и KPI</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Данные хранятся на серверах в РФ (152-ФЗ)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Инструменты, готовые к работе без Excel</li>
           </ul>
         </div>
         <div class="about-visual">
           <div class="about-visual-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/>
-              <circle cx="7" cy="15" r="1.4" fill="currentColor"/><circle cx="11" cy="10" r="1.4" fill="currentColor"/><circle cx="15" cy="13" r="1.4" fill="currentColor"/><circle cx="20" cy="6" r="1.4" fill="currentColor"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/><circle cx="7" cy="15" r="1.4" fill="currentColor"/><circle cx="11" cy="10" r="1.4" fill="currentColor"/><circle cx="15" cy="13" r="1.4" fill="currentColor"/><circle cx="20" cy="6" r="1.4" fill="currentColor"/></svg>
           </div>
         </div>
       </div>
@@ -137,12 +143,12 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        Artur<b style="color:var(--primary)">Expert</b>
-      </div>
+      <div class="footer-brand">Artur<b style="color:var(--primary)">Expert</b></div>
       <div class="footer-note">© 2026 ArturExpert · Онлайн-журнал эксперта по клиентскому сервису</div>
     </div>
   </footer>
 
+  <!-- Подключаем скрипт меню -->
+  <script src="assets/js/menu.js"></script>
 </body>
 </html>
