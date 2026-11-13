@@ -66,29 +66,58 @@
   <section class="section" style="padding-top: 20px;">
     
     <!-- БЛОК 1: Деньги -->
-    <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3l1 6"/><path d="M13 3l-1 6"/><path d="M2 9h20"/></svg>
+    <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+      <!-- Кастомная SVG: Кристалл (Деньги) -->
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <defs>
+          <linearGradient id="gradMoney" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10B981" />
+            <stop offset="100%" stop-color="#059669" />
+          </linearGradient>
+        </defs>
+        <path d="M12 2L2 9l10 13L22 9L12 2z" fill="url(#gradMoney)" />
+        <path d="M12 2v20M2 9h20" stroke="#fff" stroke-width="1.5" stroke-opacity="0.5" />
+      </svg>
       <h2 style="font-size: 24px; margin: 0;">Деньги и Экономика</h2>
     </div>
     <div class="hub-grid">
+      <!-- Карточка 1 -->
       <div class="tool-hub-card">
-        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <div class="tool-card-header">
+          <div class="tool-icon-sm" style="background: linear-gradient(135deg, #10B981, #059669); box-shadow: 0 8px 16px rgba(16,185,129,0.3);">
+            <!-- Кастомный символ стоимости -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="tool-badge badge-pro">PRO</span>
+        </div>
         <h3>Стоимость контакта</h3>
         <span class="en-title">Cost per Contact (CPC)</span>
         <p>Реальная себестоимость одного звонка с учетом телефонии, зарплат, аренды и ПО.</p>
         <span class="benchmark-tag">Средний по рынку: 120–180 ₽</span>
         <a href="#" class="btn btn-ghost btn-block">Открыть</a>
       </div>
+      <!-- Карточка 2 -->
       <div class="tool-hub-card">
-        <div class="tool-card-header"><div class="tool-icon-sm icon-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <div class="tool-card-header">
+          <div class="tool-icon-sm" style="background: linear-gradient(135deg, #F59E0B, #D97706); box-shadow: 0 8px 16px rgba(245,158,11,0.3);">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="tool-badge badge-pro">PRO</span>
+        </div>
         <h3>Потери от текучести</h3>
         <span class="en-title">Turnover Cost</span>
         <p>Сколько вы теряете на найме, адаптации и увольнении операторов.</p>
         <span class="benchmark-tag">Замена 1 оператора: ~1.5 оклада</span>
         <a href="#" class="btn btn-ghost btn-block">Открыть</a>
       </div>
+      <!-- Карточка 3 -->
       <div class="tool-hub-card">
-        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <div class="tool-card-header">
+          <div class="tool-icon-sm" style="background: linear-gradient(135deg, #10B981, #059669); box-shadow: 0 8px 16px rgba(16,185,129,0.3);">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-6"/></svg>
+          </div>
+          <span class="tool-badge badge-pro">PRO</span>
+        </div>
         <h3>Упущенная выгода</h3>
         <span class="en-title">Lost Revenue SLA</span>
         <p>Сколько денег вы теряете, когда клиенты уходят из-за долгого ожидания.</p>
@@ -98,13 +127,28 @@
     </div>
 
     <!-- БЛОК 2: Нагрузка -->
-    <div style="margin-top: 64px; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div style="margin-top: 64px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+      <!-- Кастомная SVG: Гироскоп (Нагрузка) -->
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <defs>
+          <linearGradient id="gradLoad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3B82F6" />
+            <stop offset="100%" stop-color="#1D4ED8" />
+          </linearGradient>
+        </defs>
+        <circle cx="12" cy="12" r="10" stroke="url(#gradLoad)" stroke-width="2.5" />
+        <circle cx="12" cy="12" r="4" fill="url(#gradLoad)" />
+      </svg>
       <h2 style="font-size: 24px; margin: 0;">Нагрузка и Штат</h2>
     </div>
     <div class="hub-grid">
       <div class="tool-hub-card">
-        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg></div><span class="tool-badge badge-free">FREE</span></div>
+        <div class="tool-card-header">
+          <div class="tool-icon-sm" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); box-shadow: 0 8px 16px rgba(59,130,246,0.3);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
+          </div>
+          <span class="tool-badge badge-free">FREE</span>
+        </div>
         <h3>Erlang C</h3>
         <span class="en-title">Базовый расчет</span>
         <p>Сколько операторов нужно, чтобы соблюдать SLA и не выжечь команду.</p>
@@ -112,7 +156,12 @@
         <a href="erlang.html" class="btn btn-primary btn-block">Открыть</a>
       </div>
       <div class="tool-hub-card">
-        <div class="tool-card-header"><div class="tool-icon-sm icon-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span class="tool-badge badge-soon">Скоро</span></div>
+        <div class="tool-card-header">
+          <div class="tool-icon-sm" style="background: linear-gradient(135deg, #9CA3AF, #6B7280);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <span class="tool-badge badge-soon">Скоро</span>
+        </div>
         <h3>Occupancy</h3>
         <span class="en-title">Загрузка оператора</span>
         <p>Идеальный баланс между «скучает» и «выгорает». Норма: 75–85%.</p>
@@ -122,13 +171,28 @@
     </div>
 
     <!-- БЛОК 3: Качество -->
-    <div style="margin-top: 64px; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+    <div style="margin-top: 64px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+      <!-- Кастомная SVG: Прицел/Точность (Качество) -->
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <defs>
+          <linearGradient id="gradQuality" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8B5CF6" />
+            <stop offset="100%" stop-color="#6D28D9" />
+          </linearGradient>
+        </defs>
+        <circle cx="12" cy="12" r="9" stroke="url(#gradQuality)" stroke-width="2" />
+        <path d="M12 3v18M3 12h18" stroke="url(#gradQuality)" stroke-width="1.5" />
+      </svg>
       <h2 style="font-size: 24px; margin: 0;">Качество и Результативность</h2>
     </div>
     <div class="hub-grid">
       <div class="tool-hub-card">
-        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><span class="tool-badge badge-free">FREE</span></div>
+        <div class="tool-card-header">
+          <div class="tool-icon-sm" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9); box-shadow: 0 8px 16px rgba(139,92,246,0.3);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="tool-badge badge-free">FREE</span>
+        </div>
         <h3>FCR</h3>
         <span class="en-title">First Contact Resolution</span>
         <p>Позволяет снизить до 30% повторных звонков и сэкономить миллионы.</p>
@@ -136,7 +200,12 @@
         <a href="fcr.html" class="btn btn-primary btn-block">Открыть</a>
       </div>
       <div class="tool-hub-card">
-        <div class="tool-card-header"><div class="tool-icon-sm icon-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <div class="tool-card-header">
+          <div class="tool-icon-sm" style="background: linear-gradient(135deg, #F59E0B, #D97706); box-shadow: 0 8px 16px rgba(245,158,11,0.3);">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="tool-badge badge-pro">PRO</span>
+        </div>
         <h3>AHT</h3>
         <span class="en-title">Average Handle Time</span>
         <p>Среднее время обработки контакта. Гонка за AHT убивает FCR.</p>
