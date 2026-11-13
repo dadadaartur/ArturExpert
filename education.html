@@ -17,7 +17,6 @@
       
       <nav class="main-nav">
         <div class="nav-item"><a href="materials.html" class="nav-link">Журнал</a></div>
-        
         <div class="nav-item">
           <a href="calculations.html" class="nav-link">Инструменты <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
           <div class="dropdown-menu">
@@ -25,24 +24,20 @@
               <span class="dropdown-title">Экономика</span>
               <a href="#">Стоимость контакта</a>
               <a href="#">Стоимость часа</a>
-              <a href="#">Потери от текучести</a>
             </div>
             <div class="dropdown-column">
               <span class="dropdown-title">Нагрузка и KPI</span>
               <a href="erlang.html">Erlang C</a>
-              <a href="#">Occupancy</a>
-              <a href="#">FCR</a>
+              <a href="fcr.html">FCR</a>
             </div>
           </div>
         </div>
-
         <div class="nav-item"><a href="education.html" class="nav-link active">Обучение</a></div>
         <div class="nav-item"><a href="consulting.html" class="nav-link">Консалтинг</a></div>
         <div class="nav-item"><a href="about.html" class="nav-link">Об авторе</a></div>
       </nav>
 
       <div class="header-actions">
-        <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
         <button class="menu-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
       </div>
     </div>
@@ -59,28 +54,32 @@
       <a href="education.html" class="active">Обучение</a>
       <a href="consulting.html">Консалтинг</a>
       <a href="about.html">Об авторе</a>
-      <a href="calculations.html" class="btn btn-primary">Открыть калькулятор</a>
     </nav>
   </div>
 
-  <section class="section" style="padding-top: 80px; text-align: center;">
-    <div class="section-head" style="margin: 0 auto 48px;">
-      <span class="section-eyebrow">База знаний</span>
-      <h2>Платные материалы и обучение</h2>
-      <p>Гайды, чек-листы, шаблоны регламентов и мини-курсы по построению клиентского опыта.</p>
-    </div>
+  <div class="page-header-compact" style="text-align: center;">
+    <h1>Платные материалы и обучение</h1>
+    <p style="margin: 0 auto;">Гайды, чек-листы, шаблоны регламентов и мини-курсы по построению клиентского опыта.</p>
+  </div>
     
-    <div class="materials-grid" style="text-align: left;">
+  <section class="section" style="padding-top: 20px;">
+    <div class="materials-grid">
       <div class="material-card is-soon">
-        <div class="material-cover cover-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <!-- Обертка material-cover жестко задает размер SVG -->
+        <div class="material-cover cover-emerald">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
         <div class="material-body">
           <span class="material-tag">Курс</span>
           <h3>Построение клиентского сервиса с нуля</h3>
           <p>Пошаговый видеокурс для стартапов: от найма первых операторов до автоматизации.</p>
         </div>
       </div>
+      
       <div class="material-card is-soon">
-        <div class="material-cover cover-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="material-cover cover-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
         <div class="material-body">
           <span class="material-tag">Гайд</span>
           <h3>Стандарт качества клиентского сервиса</h3>
@@ -88,7 +87,8 @@
         </div>
       </div>
     </div>
-    <div style="margin-top: 48px; padding: 32px; background: var(--bg-subtle); border-radius: var(--radius-lg); display: inline-block;">
+    
+    <div style="margin-top: 48px; padding: 32px; background: var(--bg-subtle); border-radius: var(--radius-lg); text-align: center;">
       <h3 style="margin-bottom: 12px;">Материалы готовятся к публикации</h3>
       <p style="color: var(--ink-2);">Скоро здесь появятся платные гайды и курсы.</p>
     </div>
