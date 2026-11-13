@@ -10,30 +10,50 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      
       <nav class="main-nav">
-        <a href="index.html">Главная</a>
-        <a href="materials.html">Журнал</a>
-        <a href="calculations.html">Инструменты</a>
-        <a href="education.html">Обучение</a>
-        <a href="consulting.html">Консалтинг</a>
-        <a href="about.html" class="active">Об авторе</a>
+        <div class="nav-item"><a href="materials.html" class="nav-link">Журнал</a></div>
+        
+        <div class="nav-item">
+          <a href="calculations.html" class="nav-link">Инструменты <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <span class="dropdown-title">Экономика</span>
+              <a href="#">Стоимость контакта</a>
+              <a href="#">Стоимость часа</a>
+              <a href="#">Потери от текучести</a>
+            </div>
+            <div class="dropdown-column">
+              <span class="dropdown-title">Нагрузка и KPI</span>
+              <a href="erlang.html">Erlang C</a>
+              <a href="#">Occupancy</a>
+              <a href="#">FCR</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a href="education.html" class="nav-link">Обучение</a></div>
+        <div class="nav-item"><a href="consulting.html" class="nav-link">Консалтинг</a></div>
+        <div class="nav-item"><a href="about.html" class="nav-link active">Об авторе</a></div>
       </nav>
+
       <div class="header-actions">
         <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
         <button class="menu-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
       </div>
     </div>
   </header>
+
   <div class="mobile-menu" id="mobile-menu">
     <div class="mobile-menu-header">
       <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
       <button class="menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
     <nav class="mobile-nav">
-      <a href="index.html">Главная</a>
       <a href="materials.html">Журнал</a>
       <a href="calculations.html">Инструменты</a>
       <a href="education.html">Обучение</a>
