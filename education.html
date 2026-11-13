@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обучение — ArturExpert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="materials.html">Журнал</a>
+        <a href="calculations.html">Инструменты</a>
+        <a href="education.html" class="active">Обучение</a>
+        <a href="consulting.html">Консалтинг</a>
+        <a href="about.html">Об авторе</a>
+      </nav>
+      <div class="header-actions">
+        <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
+        <button class="menu-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <button class="menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Главная</a>
+      <a href="materials.html">Журнал</a>
+      <a href="calculations.html">Инструменты</a>
+      <a href="education.html" class="active">Обучение</a>
+      <a href="consulting.html">Консалтинг</a>
+      <a href="about.html">Об авторе</a>
+      <a href="calculations.html" class="btn btn-primary">Открыть калькулятор</a>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-top: 80px; text-align: center;">
+    <div class="section-head" style="margin: 0 auto 48px;">
+      <span class="section-eyebrow">База знаний</span>
+      <h2>Платные материалы и обучение</h2>
+      <p>Гайды, чек-листы, шаблоны регламентов и мини-курсы по построению клиентского опыта.</p>
+    </div>
+    
+    <div class="materials-grid" style="text-align: left;">
+      <div class="material-card is-soon">
+        <div class="material-cover cover-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="material-body">
+          <span class="material-tag">Курс</span>
+          <h3>Построение клиентского сервиса с нуля</h3>
+          <p>Пошаговый видеокурс для стартапов: от найма первых операторов до автоматизации.</p>
+        </div>
+      </div>
+      <div class="material-card is-soon">
+        <div class="material-cover cover-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="material-body">
+          <span class="material-tag">Гайд</span>
+          <h3>Стандарт качества клиентского сервиса</h3>
+          <p>40 страниц с чек-листами, скриптами и метриками — от первого контакта до NPS.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 48px; padding: 32px; background: var(--bg-subtle); border-radius: var(--radius-lg); display: inline-block;">
+      <h3 style="margin-bottom: 12px;">Материалы готовятся к публикации</h3>
+      <p style="color: var(--ink-2);">Скоро здесь появятся платные гайды и курсы.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Artur<b style="color:var(--primary)">Expert</b></div>
+      <div class="footer-note">© 2026 ArturExpert</div>
+    </div>
+  </footer>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>
