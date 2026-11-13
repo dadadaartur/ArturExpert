@@ -136,7 +136,7 @@ h1, h2, h3, h4 {
 }
 /* Настройка логотипа */
 .brand-logo {
-  height: 64px; /* Увеличили размер */
+  height: 90px; /* Увеличили размер */
   width: auto;
   border-radius: 0;
   box-shadow: none;
