@@ -15,7 +15,7 @@
   --ink-2: #4B5563;           /* Темно-серый для текста */
   --ink-3: #9CA3AF;           /* Светло-серый для метаданных */
 
-  --bg: #FFFFFF;              /* Чистый белый фон, как на Dribbble */
+  --bg: #FFFFFF;              /* Чистый белый фон */
   --bg-subtle: #F9FAFB;       /* Легкий серый для выделения секций */
   --surface: #FFFFFF;         
   --border: #F3F4F6;          /* Очень нежная рамка */
@@ -76,7 +76,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   font-size: 15px;
   padding: 14px 28px;
-  border-radius: 999px; /* Круглые кнопки в стиле Dribbble */
+  border-radius: 999px; /* Круглые кнопки */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
   cursor: pointer;
@@ -111,7 +111,7 @@ h1, h2, h3, h4 {
 .btn-sm { padding: 10px 20px; font-size: 14px; }
 .btn-lg { padding: 18px 36px; font-size: 16px; }
 
-/* ==================== Header (Светлая, чистая) ==================== */
+/* ==================== Header (Светлая) ==================== */
 .site-header {
   position: sticky;
   top: 0;
@@ -124,7 +124,7 @@ h1, h2, h3, h4 {
 .header-inner {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 16px 48px;
+  padding: 12px 48px; /* Уменьшили отступ сверху/снизу */
   display: flex;
   align-items: center;
   gap: 40px;
@@ -134,12 +134,13 @@ h1, h2, h3, h4 {
   align-items: center;
   text-decoration: none;
 }
-/* Стилизация логотипа с темным фоном */
+/* Настройка логотипа */
 .brand-logo {
-  height: 48px;
+  height: 64px; /* Увеличили размер */
   width: auto;
-  border-radius: 12px; /* Скругляем, чтобы было похоже на иконку приложения */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 0;
+  box-shadow: none;
+  mix-blend-mode: multiply; /* Убирает белый фон картинки на белой шапке */
 }
 
 .main-nav {
@@ -240,7 +241,7 @@ h1, h2, h3, h4 {
   color: var(--ink-2);
 }
 
-/* ==================== Tools (Карточки) ==================== */
+/* ==================== Tools ==================== */
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -597,7 +598,8 @@ h1, h2, h3, h4 {
   .header-inner { padding: 16px 20px; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
   .main-nav { display: none; } 
   .header-cta { margin-left: 0; }
-  .brand-logo { height: 40px; }
+  /* Логотип на телефонах делаем поменьше, чтобы влезал */
+  .brand-logo { height: 48px; }
 
   .hero { padding: 64px 20px; }
   .section { padding: 64px 20px; }
