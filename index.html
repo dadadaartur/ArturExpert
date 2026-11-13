@@ -17,8 +17,7 @@
       <a href="index.html" class="brand">
         <span class="brand-mark">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 3v18h18"/>
-            <path d="M7 14l4-4 4 4 5-5"/>
+            <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/>
           </svg>
         </span>
         <span>Artur<b>Expert</b></span>
@@ -31,7 +30,6 @@
       </nav>
       <a href="calculations.html" class="btn btn-primary btn-sm header-cta">
         Открыть калькулятор
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
       </a>
     </div>
   </header>
@@ -39,29 +37,29 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-      </div>
+      <div class="hero-decor"></div>
       <div class="hero-inner">
         <span class="hero-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <!-- Заменили молнию на кастомный "Фокус/Ядро" -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/>
+            <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+          </svg>
           Онлайн-журнал эксперта по клиентскому сервису
         </span>
-        <h1>Прокачай клиентский сервис <span class="gradient-text">с цифрами в руках</span></h1>
+        <h1>Прокачай клиентский сервис <span>с цифрами в руках</span></h1>
         <p class="hero-sub">Платные материалы, готовые инструменты и калькуляторы KPI, SLA и Erlang C — для руководителей и экспертов, которые принимают решения на основе данных, а не интуиции.</p>
         <div class="hero-actions">
           <a href="calculations.html" class="btn btn-primary btn-lg">
             Открыть калькуляторы
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="#materials" class="btn btn-ghost btn-lg">Материалы журнала</a>
+          <a href="#materials" class="btn btn-glow btn-lg">Материалы журнала</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat"><b>3</b><span>калькулятора в планах</span></div>
-          <div class="stat"><b>12+</b><span>материалов</span></div>
-          <div class="stat"><b>100%</b><span>соответствие 152-ФЗ</span></div>
+        <div class="hero-stats" style="display: flex; gap: 48px; flex-wrap: wrap;">
+          <div class="stat"><b style="font-family: var(--font-mono); font-size: 32px;">3</b><br><span style="font-size: 14px; color: var(--ink-3);">калькулятора в планах</span></div>
+          <div class="stat"><b style="font-family: var(--font-mono); font-size: 32px;">12+</b><br><span style="font-size: 14px; color: var(--ink-3);">материалов</span></div>
+          <div class="stat"><b style="font-family: var(--font-mono); font-size: 32px;">100%</b><br><span style="font-size: 14px; color: var(--ink-3);">соответствие 152-ФЗ</span></div>
         </div>
       </div>
     </section>
@@ -74,7 +72,7 @@
         <p>Готовые калькуляторы с проверенными формулами — не нужно вспоминать математику Erlang C или пересобирать таблицы в Excel.</p>
       </div>
       <div class="tools-grid">
-        <a href="calculations.html" class="tool-card tool-coral">
+        <a href="calculations.html" class="tool-card tool-indigo">
           <div class="tool-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/>
@@ -85,7 +83,7 @@
           <span class="tool-link">Перейти <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <div class="tool-card tool-turquoise is-soon">
+        <div class="tool-card tool-emerald is-soon">
           <span class="badge-soon">Скоро</span>
           <div class="tool-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -96,7 +94,7 @@
           <p>Occupancy, AHT, FCR, CSAT — считайте по своим данным в один клик.</p>
         </div>
 
-        <div class="tool-card tool-lavender is-soon">
+        <div class="tool-card tool-violet is-soon">
           <span class="badge-soon">Скоро</span>
           <div class="tool-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -118,7 +116,7 @@
       </div>
       <div class="materials-grid">
         <article class="material-card">
-          <div class="material-cover cover-coral">
+          <div class="material-cover cover-indigo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/>
             </svg>
@@ -131,7 +129,7 @@
         </article>
 
         <article class="material-card">
-          <div class="material-cover cover-turquoise">
+          <div class="material-cover cover-emerald">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>
             </svg>
@@ -144,7 +142,7 @@
         </article>
 
         <article class="material-card">
-          <div class="material-cover cover-lavender">
+          <div class="material-cover cover-amber">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
             </svg>
@@ -182,7 +180,7 @@
         </div>
         <div class="about-visual">
           <div class="about-visual-inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 3v18h18"/><path d="M7 15l4-5 4 3 5-7"/>
               <circle cx="7" cy="15" r="1.4" fill="currentColor"/><circle cx="11" cy="10" r="1.4" fill="currentColor"/><circle cx="15" cy="13" r="1.4" fill="currentColor"/><circle cx="20" cy="6" r="1.4" fill="currentColor"/>
             </svg>
@@ -195,12 +193,12 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="brand-mark" style="width:32px;height:32px;border-radius:9px">
+        <span class="brand-mark" style="width:32px;height:32px;border-radius:8px">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/>
           </svg>
         </span>
-        Artur<b style="color:var(--coral)">Expert</b>
+        Artur<b style="color:var(--indigo)">Expert</b>
       </div>
       <div class="footer-note">© 2026 ArturExpert · Онлайн-журнал эксперта по клиентскому сервису</div>
     </div>
