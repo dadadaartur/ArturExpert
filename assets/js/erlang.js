@@ -1,10 +1,5 @@
 /* ============================================================
    Калькулятор Erlang C — логика
-   ============================================================
-   Позже, когда создадим API-функцию в ONREZA,
-   впишите её публичный URL в константу ниже.
-   Пока оставьте пустой строкой — запись в БД
-   просто не будет отправляться.
    ============================================================ */
 const API_ENDPOINT = ''; // ← сюда вставим URL функции ONREZA позже
 
@@ -143,14 +138,14 @@ function updateChart(traffic, handleTime, targetTime, currentAgents) {
         {
           label: 'SLA (%)',
           data: dataSla,
-          borderColor: '#FF5A5F',
-          backgroundColor: 'rgba(255, 90, 95, 0.10)',
+          borderColor: '#3B4CCA', /* Индиго */
+          backgroundColor: 'rgba(59, 76, 202, 0.08)',
           borderWidth: 3,
-          pointBackgroundColor: '#FF5A5F',
+          pointBackgroundColor: '#3B4CCA',
           pointBorderColor: '#fff',
           pointBorderWidth: 2,
-          pointRadius: 5,
-          pointHoverRadius: 7,
+          pointRadius: 4,
+          pointHoverRadius: 6,
           tension: 0.4,
           fill: true,
           yAxisID: 'y',
@@ -158,7 +153,7 @@ function updateChart(traffic, handleTime, targetTime, currentAgents) {
         {
           label: 'Загрузка (%)',
           data: dataOccupancy,
-          borderColor: '#00C9A7',
+          borderColor: '#00A896', /* Изумрудный */
           borderWidth: 2,
           borderDash: [5, 5],
           pointRadius: 0,
@@ -174,11 +169,11 @@ function updateChart(traffic, handleTime, targetTime, currentAgents) {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#0D1B2A',
+          backgroundColor: '#1A202C',
           titleFont: { family: 'Manrope', size: 13, weight: '700' },
           bodyFont: { family: 'Inter', size: 13 },
           padding: 12,
-          cornerRadius: 10,
+          cornerRadius: 8,
           displayColors: true,
           callbacks: {
             label: (c) => `${c.dataset.label}: ${c.parsed.y}%`,
@@ -189,16 +184,16 @@ function updateChart(traffic, handleTime, targetTime, currentAgents) {
         y: {
           min: 0,
           max: 110,
-          grid: { color: '#F0EBE4' },
+          grid: { color: '#E2E8F0' },
           ticks: {
             font: { family: 'Inter', size: 12 },
-            color: '#7B8794',
+            color: '#718096',
             callback: (v) => v + '%',
           },
         },
         x: {
           grid: { display: false },
-          ticks: { font: { family: 'Inter', size: 12 }, color: '#7B8794' },
+          ticks: { font: { family: 'Inter', size: 12 }, color: '#718096' },
         },
       },
     },
