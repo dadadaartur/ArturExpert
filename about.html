@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Об авторе — ArturExpert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="materials.html">Журнал</a>
+        <a href="calculations.html">Инструменты</a>
+        <a href="education.html">Обучение</a>
+        <a href="consulting.html">Консалтинг</a>
+        <a href="about.html" class="active">Об авторе</a>
+      </nav>
+      <div class="header-actions">
+        <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
+        <button class="menu-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <button class="menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Главная</a>
+      <a href="materials.html">Журнал</a>
+      <a href="calculations.html">Инструменты</a>
+      <a href="education.html">Обучение</a>
+      <a href="consulting.html">Консалтинг</a>
+      <a href="about.html" class="active">Об авторе</a>
+      <a href="calculations.html" class="btn btn-primary">Открыть калькулятор</a>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-top: 80px;">
+    <div class="about-card">
+      <div class="about-text">
+        <span class="section-eyebrow">Об авторе</span>
+        <h2>Привет, я Артур</h2>
+        <p>Я эксперт по клиентскому опыту (CX) и сервисной аналитике. Более [X] лет я помогаю компаниям превращать поддержку из «центра затрат» в источник прибыли и лояльности.</p>
+        <p>Моя специализация — математика контакт-центров, расчет нагрузок (Erlang C) и выстраивание системы метрик (KPI, SLA, NPS, CSAT).</p>
+        <p>Этот журнал — моя база знаний. Здесь я делюсь инструментами, разбираю мировые тренды и показываю, как считать деньги в клиентском сервисе.</p>
+        <div style="display: flex; gap: 16px; margin-top: 32px;">
+          <a href="https://t.me/" target="_blank" class="btn btn-primary">Написать в Telegram</a>
+          <a href="consulting.html" class="btn btn-ghost">Услуги</a>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-inner" style="overflow: hidden; background: var(--bg-subtle);">
+          <!-- Заглушка вместо фото -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="width: 80%; height: 80%; opacity: 0.2;"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Artur<b style="color:var(--primary)">Expert</b></div>
+      <div class="footer-note">© 2026 ArturExpert</div>
+    </div>
+  </footer>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>
