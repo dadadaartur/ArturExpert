@@ -222,7 +222,7 @@ h1, h2, h3, h4 {
 .hero-sub { font-size: clamp(16px, 1.8vw, 20px); color: var(--ink-2); max-width: 800px; margin-bottom: 40px; line-height: 1.6; }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
 
-/* ==================== Секции (Хаб инструментов) ==================== */
+/* ==================== Секции ==================== */
 .section { max-width: 1440px; margin: 0 auto; padding: 80px 48px; width: 100%; }
 .section-head { max-width: 800px; margin-bottom: 56px; }
 .section-eyebrow {
@@ -232,7 +232,7 @@ h1, h2, h3, h4 {
 .section-head h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px; }
 .section-head p { font-size: 18px; color: var(--ink-2); }
 
-/* Анимированное подчеркивание для текста */
+/* Анимированное подчеркивание */
 .animated-underline {
   position: relative;
   display: inline-block;
@@ -264,7 +264,6 @@ h1, h2, h3, h4 {
   gap: 24px;
   margin-bottom: 64px;
 }
-
 .tool-hub-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -281,7 +280,6 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-lg);
   border-color: var(--primary);
 }
-
 .tool-card-header {
   display: flex;
   justify-content: space-between;
@@ -314,24 +312,9 @@ h1, h2, h3, h4 {
 .badge-pro { background: var(--accent-soft); color: #B45309; }
 .badge-soon { background: var(--bg-subtle); color: var(--ink-3); }
 
-.tool-hub-card h3 {
-  font-size: 20px;
-  margin-bottom: 4px;
-}
-.tool-hub-card .en-title {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--ink-3);
-  margin-bottom: 12px;
-  display: block;
-}
-.tool-hub-card p {
-  font-size: 14.5px;
-  color: var(--ink-2);
-  line-height: 1.5;
-  flex: 1;
-  margin-bottom: 24px;
-}
+.tool-hub-card h3 { font-size: 20px; margin-bottom: 4px; }
+.tool-hub-card .en-title { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin-bottom: 12px; display: block; }
+.tool-hub-card p { font-size: 14.5px; color: var(--ink-2); line-height: 1.5; flex: 1; margin-bottom: 24px; }
 .benchmark-tag {
   display: inline-block;
   font-size: 12px;
@@ -343,7 +326,32 @@ h1, h2, h3, h4 {
   margin-bottom: 24px;
 }
 
-/* ==================== Форма и Результаты (Страница Erlang) ==================== */
+/* ==================== Materials (Журнал) ==================== */
+.materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
+.material-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); text-decoration: none; color: inherit; }
+.material-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.material-cover { height: 180px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); }
+.material-cover svg { width: 56px; height: 56px; opacity: 0.9; }
+.cover-indigo, .cover-emerald { background: var(--primary-soft); color: var(--primary); }
+.cover-amber { background: var(--accent-soft); color: var(--accent); }
+.cover-violet { background: #F3F4F6; color: var(--ink-2); }
+.material-body { padding: 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.material-tag { display: inline-block; align-self: flex-start; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 6px 12px; border-radius: 999px; }
+.material-card h3 { font-size: 20px; line-height: 1.3; }
+.material-card p { font-size: 15px; color: var(--ink-2); flex: 1; line-height: 1.6; }
+
+/* ==================== About (Блоки) ==================== */
+.about-card { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 64px; align-items: center; }
+.about-text h2 { font-size: clamp(28px, 3.2vw, 40px); margin-bottom: 20px; }
+.about-text p { font-size: 16px; color: var(--ink-2); margin-bottom: 24px; }
+.check-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; color: var(--ink); font-weight: 500; }
+.check-list svg { width: 24px; height: 24px; flex-shrink: 0; color: var(--primary); }
+.about-visual { display: flex; justify-content: center; }
+.about-visual-inner { width: 100%; max-width: 300px; aspect-ratio: 1; border-radius: 32px; background: var(--bg); display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); box-shadow: var(--shadow-md); }
+.about-visual-inner svg { width: 50%; height: 50%; color: var(--primary); }
+
+/* ==================== Calculator Page ==================== */
 .calc-layout { max-width: 1440px; margin: 0 auto; padding: 32px 48px 96px; display: grid; grid-template-columns: 400px 1fr; gap: 32px; align-items: start; }
 .input-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md); position: sticky; top: 100px; }
 .input-panel h2 { font-size: 16px; font-weight: 800; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
@@ -396,7 +404,8 @@ h1, h2, h3, h4 {
   .menu-toggle { display: flex; }
   .header-inner { padding: 12px 24px; justify-content: space-between; }
   .header-actions { margin-left: auto; }
-  .dropdown-menu { display: none; /* На планшетах скрываем, мобильное меню возьмет на себя роль */ }
+  .dropdown-menu { display: none; }
+  .about-card { grid-template-columns: 1fr; padding: 40px; gap: 40px; }
 }
 
 @media (max-width: 768px) {
@@ -412,4 +421,5 @@ h1, h2, h3, h4 {
   .brand-logo { height: 48px; }
   .header-cta { display: none; }
   .hub-grid { grid-template-columns: 1fr; }
+  .materials-grid { grid-template-columns: 1fr; }
 }
