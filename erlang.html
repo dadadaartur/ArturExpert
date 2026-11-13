@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erlang C — ArturExpert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <nav class="main-nav">
+        <div class="nav-item"><a href="materials.html" class="nav-link">Журнал</a></div>
+        <div class="nav-item">
+          <a href="calculations.html" class="nav-link active">Инструменты <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <span class="dropdown-title">Экономика</span>
+              <a href="#">Стоимость контакта</a>
+              <a href="#">Стоимость часа</a>
+            </div>
+            <div class="dropdown-column">
+              <span class="dropdown-title">Нагрузка и KPI</span>
+              <a href="erlang.html">Erlang C</a>
+              <a href="#">FCR</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="education.html" class="nav-link">Обучение</a></div>
+        <div class="nav-item"><a href="consulting.html" class="nav-link">Консалтинг</a></div>
+        <div class="nav-item"><a href="about.html" class="nav-link">Об авторе</a></div>
+      </nav>
+      <div class="header-actions">
+        <a href="calculations.html" class="btn btn-ghost btn-sm header-cta">Все инструменты</a>
+        <button class="menu-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <button class="menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="materials.html">Журнал</a>
+      <a href="calculations.html" class="active">Инструменты</a>
+      <a href="education.html">Обучение</a>
+      <a href="consulting.html">Консалтинг</a>
+      <a href="about.html">Об авторе</a>
+      <a href="calculations.html" class="btn btn-ghost">Все инструменты</a>
+    </nav>
+  </div>
+
+  <nav style="max-width: 1440px; margin: 0 auto; padding: 32px 48px 0; font-size: 14px; color: var(--ink-3); font-weight: 500;">
+    <a href="index.html" style="color: var(--ink-3);">Главная</a> <span style="margin: 0 8px;">›</span> 
+    <a href="calculations.html" style="color: var(--ink-3);">Инструменты</a> <span style="margin: 0 8px;">›</span> Erlang C
+  </nav>
+
+  <section style="max-width: 1440px; margin: 0 auto; padding: 32px 48px 24px;">
+    <h1 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px;">Erlang C калькулятор</h1>
+    <p style="font-size: 18px; color: var(--ink-2); max-width: 800px;">Рассчитайте необходимое количество операторов для соблюдения целевого SLA и оптимальной загрузки.</p>
+  </section>
+
+  <div class="calc-layout">
+    <aside class="input-panel">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>Параметры нагрузки</h2>
+      <div class="form-group"><label>Звонков в час <span>Volume</span></label><div class="input-wrapper"><input type="number" id="calls" value="100" min="1"><div class="input-suffix">шт</div></div></div>
+      <div class="form-group"><label>Среднее время разговора <span>AHT</span></label><div class="input-wrapper"><input type="number" id="aht" value="300" min="1"><div class="input-suffix">сек</div></div></div>
+      <div class="form-group"><label>Время после звонка <span>ACW</span></label><div class="input-wrapper"><input type="number" id="acw" value="60" min="0"><div class="input-suffix">сек</div></div></div>
+      <div class="divider"></div>
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>Целевые показатели (SLA)</h2>
+      <div class="form-group"><label>Целевой SLA <span>% звонков</span></label><div class="input-wrapper"><input type="number" id="target-sla" value="80" min="1" max="100"><div class="input-suffix">%</div></div></div>
+      <div class="form-group"><label>Ответить за <span>Target Time</span></label><div class="input-wrapper"><input type="number" id="target-time" value="20" min="1"><div class="input-suffix">сек</div></div></div>
+    </aside>
+
+    <section class="results-panel">
+      <div class="kpi-grid">
+        <div class="kpi-card primary"><div class="kpi-title">Нужно операторов</div><div class="kpi-value" id="res-agents">0</div><div class="kpi-sub">Для соблюдения SLA</div></div>
+        <div class="kpi-card success"><div class="kpi-title">Фактический SLA</div><div class="kpi-value" id="res-sla">0%</div><div class="kpi-sub">При этом штате</div></div>
+        <div class="kpi-card warning"><div class="kpi-title">Загрузка (Occupancy)</div><div class="kpi-value" id="res-occupancy">0%</div><div class="kpi-sub">Оптимально: 75–85%</div></div>
+        <div class="kpi-card danger"><div class="kpi-title">Ср. время ожидания</div><div class="kpi-value" id="res-asa">0с</div><div class="kpi-sub">Average Speed of Answer</div></div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3 7h7l-5.5 4.5 2 7-6.5-4.5-6.5 4.5 2-7L2 9h7z"/></svg></div>
+        <div class="insight-text" id="insight-text">Введите данные, чтобы увидеть рекомендации.</div>
+      </div>
+      <div class="chart-container">
+        <div class="chart-header"><div class="chart-title">Зависимость SLA от количества операторов</div><div class="chart-legend">Цель: <span id="legend-target">80% / 20 сек</span></div></div>
+        <div class="chart-wrapper"><canvas id="slaChart"></canvas></div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Artur<b style="color:var(--primary)">Expert</b></div>
+      <div class="footer-note">© 2026 ArturExpert · Инструменты</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/erlang.js"></script>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>
