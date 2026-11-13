@@ -1,9 +1,14 @@
 /* ============================================================
-   Калькулятор Erlang C — логика
+   Калькулятор Erlang C — логика (Интеграция с Табрикой)
    ============================================================ */
 
-// URL вашей серверной функции в ONREZA
-const API_ENDPOINT = 'https://artur-expert-api-arturgalkin-ru-kg7i.onreza.app/save-erlang'; 
+// 👇 ВСТАВЬТЕ ВАШИ ДАННЫЕ СЮДА (кавычки оставьте):
+const TABRICA_TOKEN = 'tab_LmWW4dwJ4aavH7j8bgrorjgtWdqeOQlCFXOJkgHqh30N_cGahCrw7HoebTvBDSHE'; 
+const DATABASE_ID = '348'; // Уже заполнено из вашей ссылки
+const TABLE_ID = '511';    // Уже заполнено из вашей ссылки
+
+// URL для создания записи в Табрике (REST v1)
+const API_ENDPOINT = `https://api.tabrica.ru/public/v1/databases/${DATABASE_ID}/tables/${TABLE_ID}/records`;
 
 // ============ Математика Erlang C ============
 function factorial(n) {
@@ -93,31 +98,37 @@ function updateCalculator() {
   updateChart(traffic, totalHandleTime, targetTime, agents);
 
   // ==========================================
-  // ОТПРАВКА ДАННЫХ В БАЗУ ONREZA
+  // ОТПРАВКА ДАННЫХ В ТАБРИКУ
   // ==========================================
-  if (API_ENDPOINT) {
-    // Используем debounce, чтобы не спамить базу при каждом нажатии клавиши
+  // Проверяем, что токен вставлен (чтобы не было ошибок, пока вы его не заменили)
+  if (TABRICA_TOKEN !== 'ВСТАВЬТЕ_СЮДА_ВАШ_ТОКЕН_НАЧИНАЮЩИЙСЯ_С_tab_') {
     clearTimeout(window.saveTimeout);
     window.saveTimeout = setTimeout(() => {
       fetch(API_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Authorization': `Bearer ${TABRICA_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        // Табрика ожидает данные внутри объекта "data"
         body: JSON.stringify({
-          calls: calls,
-          aht: aht,
-          acw: acw,
-          target_sla: targetSla,
-          target_time: targetTime,
-          recommended_agents: agents,
-          actual_sla: finalSla,
+          data: {
+            calls: calls,
+            aht: aht,
+            acw: acw,
+            target_sla: targetSla,
+            target_time: targetTime,
+            recommended_agents: agents,
+            actual_sla: finalSla,
+          }
         }),
       })
       .then(r => {
-        if(!r.ok) throw new Error('Network response was not ok');
+        if (!r.ok) throw new Error(`HTTP error! status: ${r.status}`);
         return r.json();
       })
-      .then(d => console.log('✅ Успешно сохранено в БД, ID:', d.id))
-      .catch(err => console.warn('❌ Ошибка сохранения в ONREZA:', err.message));
+      .then(d => console.log('✅ Успешно сохранено в Табрике!', d))
+      .catch(err => console.warn('❌ Ошибка сохранения в Табрике:', err.message));
     }, 1500); // Ждем 1.5 секунды после последнего ввода
   }
 }
@@ -151,7 +162,7 @@ function updateChart(traffic, handleTime, targetTime, currentAgents) {
         {
           label: 'SLA (%)',
           data: dataSla,
-          borderColor: '#3B4CCA', /* Индиго */
+          borderColor: '#3B4CCA',
           backgroundColor: 'rgba(59, 76, 202, 0.08)',
           borderWidth: 3,
           pointBackgroundColor: '#3B4CCA',
@@ -166,7 +177,7 @@ function updateChart(traffic, handleTime, targetTime, currentAgents) {
         {
           label: 'Загрузка (%)',
           data: dataOccupancy,
-          borderColor: '#00A896', /* Изумрудный */
+          borderColor: '#00A896',
           borderWidth: 2,
           borderDash: [5, 5],
           pointRadius: 0,
