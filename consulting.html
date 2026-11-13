@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Консалтинг — ArturExpert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="materials.html">Журнал</a>
+        <a href="calculations.html">Инструменты</a>
+        <a href="education.html">Обучение</a>
+        <a href="consulting.html" class="active">Консалтинг</a>
+        <a href="about.html">Об авторе</a>
+      </nav>
+      <div class="header-actions">
+        <a href="calculations.html" class="btn btn-primary btn-sm header-cta">Открыть калькулятор</a>
+        <button class="menu-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      <button class="menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Главная</a>
+      <a href="materials.html">Журнал</a>
+      <a href="calculations.html">Инструменты</a>
+      <a href="education.html">Обучение</a>
+      <a href="consulting.html" class="active">Консалтинг</a>
+      <a href="about.html">Об авторе</a>
+      <a href="calculations.html" class="btn btn-primary">Открыть калькулятор</a>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-top: 80px;">
+    <div class="section-head" style="max-width: 800px; margin: 0 auto 48px; text-align: center;">
+      <span class="section-eyebrow">Услуги</span>
+      <h2>Экспертная помощь и аудит</h2>
+      <p>Помогаю компаниям выстроить прибыльный клиентский сервис, снизить отток и оптимизировать затраты на поддержку.</p>
+    </div>
+    
+    <div class="tools-grid" style="max-width: 1000px; margin: 0 auto;">
+      <div class="tool-card" style="background: var(--primary-soft); border-color: #D1FAE5;">
+        <h3 style="font-size: 24px; color: var(--primary-hover);">Аудит контакт-центра</h3>
+        <p style="color: var(--ink);">Глубокий анализ текущих метрик (SLA, AHT, Occupancy), прослушка звонков и выявление узких мест. На выходе — план оптимизации.</p>
+        <a href="#" class="btn btn-primary" style="margin-top: 16px; align-self: flex-start;">Заказать аудит</a>
+      </div>
+      <div class="tool-card">
+        <h3 style="font-size: 24px;">Построение сервиса с нуля</h3>
+        <p>Помощь стартапам и новым направлениям: подбор команды, выбор телефонии, написание скриптов и баз знаний, настройка KPI.</p>
+        <a href="#" class="btn btn-ghost" style="margin-top: 16px; align-self: flex-start;">Обсудить проект</a>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 64px; padding: 40px; background: var(--bg-subtle); border-radius: var(--radius-lg);">
+      <h3 style="margin-bottom: 16px;">Нужна индивидуальная консультация?</h3>
+      <p style="color: var(--ink-2); margin-bottom: 24px;">Напишите мне, чтобы обсудить задачи вашего бизнеса.</p>
+      <a href="https://t.me/" target="_blank" class="btn btn-primary btn-lg">Написать в Telegram</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Artur<b style="color:var(--primary)">Expert</b></div>
+      <div class="footer-note">© 2026 ArturExpert</div>
+    </div>
+  </footer>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>
