@@ -3,26 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Инструменты — ArturExpert</title>
+  <title>Инструменты и расчеты — ArturExpert</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand"><img src="assets/img/logo.png" alt="ArturExpert" class="brand-logo"></a>
+      
       <nav class="main-nav">
-        <a href="index.html">Главная</a>
-        <a href="materials.html">Журнал</a>
-        <a href="calculations.html" class="active">Инструменты</a>
-        <a href="education.html">Обучение</a>
-        <a href="consulting.html">Консалтинг</a>
-        <a href="about.html">Об авторе</a>
+        <!-- Убрали "Главная", добавили выпадающее меню для инструментов -->
+        <div class="nav-item"><a href="materials.html" class="nav-link">Журнал</a></div>
+        
+        <div class="nav-item">
+          <a href="calculations.html" class="nav-link active">Инструменты <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-column">
+              <span class="dropdown-title">Экономика</span>
+              <a href="#">Стоимость контакта</a>
+              <a href="#">Стоимость часа</a>
+              <a href="#">Потери от текучести</a>
+            </div>
+            <div class="dropdown-column">
+              <span class="dropdown-title">Нагрузка и KPI</span>
+              <a href="erlang.html">Erlang C</a>
+              <a href="#">Occupancy</a>
+              <a href="#">FCR</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a href="education.html" class="nav-link">Обучение</a></div>
+        <div class="nav-item"><a href="consulting.html" class="nav-link">Консалтинг</a></div>
+        <div class="nav-item"><a href="about.html" class="nav-link">Об авторе</a></div>
       </nav>
+
       <div class="header-actions">
         <a href="index.html" class="btn btn-ghost btn-sm header-cta">На главную</a>
         <button class="menu-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
@@ -36,7 +55,6 @@
       <button class="menu-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
     <nav class="mobile-nav">
-      <a href="index.html">Главная</a>
       <a href="materials.html">Журнал</a>
       <a href="calculations.html" class="active">Инструменты</a>
       <a href="education.html">Обучение</a>
@@ -46,46 +64,110 @@
     </nav>
   </div>
 
-  <nav class="breadcrumbs">
-    <a href="index.html">Главная</a>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-    <span>Инструменты</span>
-  </nav>
-
-  <section class="calc-hero">
-    <h1>Инструменты и расчеты</h1>
-    <p>Готовые калькуляторы для руководителей клиентского сервиса. Сейчас доступен Erlang C — скоро добавим KPI и стоимость часа.</p>
+  <section class="section" style="padding-top: 60px; padding-bottom: 0;">
+    <nav style="font-size: 14px; color: var(--ink-3); margin-bottom: 24px; font-weight: 500;">
+      <a href="index.html" style="color: var(--ink-3);">Главная</a> <span style="margin: 0 8px;">›</span> Инструменты
+    </nav>
+    
+    <div class="section-head">
+      <h1 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px;">Инструменты и расчеты</h1>
+      <p style="font-size: 18px; color: var(--ink-2); max-width: 700px;">
+        Готовые калькуляторы для руководителей клиентского сервиса. Считайте <span class="animated-underline">Erlang C</span>, <span class="animated-underline">KPI</span> и <span class="animated-underline">стоимость часа</span> — на основе проверенных формул и бенчмарков.
+      </p>
+    </div>
   </section>
 
-  <div class="calc-layout">
-    <aside class="input-panel">
-      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>Параметры нагрузки</h2>
-      <div class="form-group"><label>Звонков в час <span>Volume</span></label><div class="input-wrapper"><input type="number" id="calls" value="100" min="1"><div class="input-suffix">шт</div></div></div>
-      <div class="form-group"><label>Среднее время разговора <span>AHT</span></label><div class="input-wrapper"><input type="number" id="aht" value="300" min="1"><div class="input-suffix">сек</div></div></div>
-      <div class="form-group"><label>Время после звонка <span>ACW</span></label><div class="input-wrapper"><input type="number" id="acw" value="60" min="0"><div class="input-suffix">сек</div></div></div>
-      <div class="divider"></div>
-      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>Целевые показатели (SLA)</h2>
-      <div class="form-group"><label>Целевой SLA <span>% звонков</span></label><div class="input-wrapper"><input type="number" id="target-sla" value="80" min="1" max="100"><div class="input-suffix">%</div></div></div>
-      <div class="form-group"><label>Ответить за <span>Target Time</span></label><div class="input-wrapper"><input type="number" id="target-time" value="20" min="1"><div class="input-suffix">сек</div></div></div>
-    </aside>
+  <section class="section" style="padding-top: 40px;">
+    
+    <!-- БЛОК 1: Деньги -->
+    <div style="margin-bottom: 24px;">
+      <h2 style="font-size: 24px; margin-bottom: 8px;">💎 Деньги и Экономика</h2>
+      <p style="color: var(--ink-3);">Как сервис влияет на прибыль и где скрываются убытки.</p>
+    </div>
+    <div class="hub-grid">
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <h3>Стоимость контакта</h3>
+        <span class="en-title">Cost per Contact (CPC)</span>
+        <p>Реальная себестоимость одного звонка с учетом телефонии, зарплат, аренды и ПО.</p>
+        <span class="benchmark-tag">Средний по рынку: 120–180 ₽</span>
+        <a href="#" class="btn btn-ghost btn-block">Открыть</a>
+      </div>
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <h3>Потери от текучести</h3>
+        <span class="en-title">Turnover Cost</span>
+        <p>Сколько вы теряете на найме, адаптации и увольнении операторов.</p>
+        <span class="benchmark-tag">Замена 1 оператора: ~1.5 оклада</span>
+        <a href="#" class="btn btn-ghost btn-block">Открыть</a>
+      </div>
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <h3>Упущенная выгода</h3>
+        <span class="en-title">Lost Revenue SLA</span>
+        <p>Сколько денег вы теряете, когда клиенты уходят из-за долгого ожидания.</p>
+        <span class="benchmark-tag">Низкий SLA = -15% выручки</span>
+        <a href="#" class="btn btn-ghost btn-block">Открыть</a>
+      </div>
+    </div>
 
-    <section class="results-panel">
-      <div class="kpi-grid">
-        <div class="kpi-card primary"><div class="kpi-title">Нужно операторов</div><div class="kpi-value" id="res-agents">0</div><div class="kpi-sub">Для соблюдения SLA</div></div>
-        <div class="kpi-card success"><div class="kpi-title">Фактический SLA</div><div class="kpi-value" id="res-sla">0%</div><div class="kpi-sub">При этом штате</div></div>
-        <div class="kpi-card warning"><div class="kpi-title">Загрузка (Occupancy)</div><div class="kpi-value" id="res-occupancy">0%</div><div class="kpi-sub">Оптимально: 75–85%</div></div>
-        <div class="kpi-card danger"><div class="kpi-title">Ср. время ожидания</div><div class="kpi-value" id="res-asa">0с</div><div class="kpi-sub">Average Speed of Answer</div></div>
+    <!-- БЛОК 2: Нагрузка -->
+    <div style="margin-top: 64px; margin-bottom: 24px;">
+      <h2 style="font-size: 24px; margin-bottom: 8px;">⏱️ Нагрузка и Штат</h2>
+      <p style="color: var(--ink-3);">Классическая математика контакт-центра.</p>
+    </div>
+    <div class="hub-grid">
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg></div><span class="tool-badge badge-free">FREE</span></div>
+        <h3>Erlang C</h3>
+        <span class="en-title">Базовый расчет</span>
+        <p>Сколько операторов нужно, чтобы соблюдать SLA и не выжечь команду.</p>
+        <span class="benchmark-tag">Норма SLA: 80% / 20 сек</span>
+        <a href="erlang.html" class="btn btn-primary btn-block">Открыть</a>
       </div>
-      <div class="insight-box">
-        <div class="insight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3 7h7l-5.5 4.5 2 7-6.5-4.5-6.5 4.5 2-7L2 9h7z"/></svg></div>
-        <div class="insight-text" id="insight-text">Введите данные, чтобы увидеть рекомендации.</div>
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><span class="tool-badge badge-soon">Скоро</span></div>
+        <h3>Occupancy</h3>
+        <span class="en-title">Загрузка оператора</span>
+        <p>Идеальный баланс между «скучает» и «выгорает». Норма: 75–85%.</p>
+        <span class="benchmark-tag">Выше 85% = риск выгорания</span>
+        <a href="#" class="btn btn-ghost btn-block">Открыть</a>
       </div>
-      <div class="chart-container">
-        <div class="chart-header"><div class="chart-title">Зависимость SLA от количества операторов</div><div class="chart-legend">Цель: <span id="legend-target">80% / 20 сек</span></div></div>
-        <div class="chart-wrapper"><canvas id="slaChart"></canvas></div>
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><span class="tool-badge badge-soon">Скоро</span></div>
+        <h3>Shrinkage</h3>
+        <span class="en-title">Потери времени</span>
+        <p>Реальный фонд рабочего времени с учетом отпусков, больничных и перерывов.</p>
+        <span class="benchmark-tag">Средний: 25-30%</span>
+        <a href="#" class="btn btn-ghost btn-block">Открыть</a>
       </div>
-    </section>
-  </div>
+    </div>
+
+    <!-- БЛОК 3: Качество -->
+    <div style="margin-top: 64px; margin-bottom: 24px;">
+      <h2 style="font-size: 24px; margin-bottom: 8px;">🎯 Качество и Результативность</h2>
+      <p style="color: var(--ink-3);">Насколько хорошо решаются проблемы клиентов.</p>
+    </div>
+    <div class="hub-grid">
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><span class="tool-badge badge-free">FREE</span></div>
+        <h3>FCR</h3>
+        <span class="en-title">First Contact Resolution</span>
+        <p>Позволяет снизить до 30% повторных звонков и сэкономить миллионы.</p>
+        <span class="benchmark-tag">Норма: 70–79%</span>
+        <a href="#" class="btn btn-primary btn-block">Открыть</a>
+      </div>
+      <div class="tool-hub-card">
+        <div class="tool-card-header"><div class="tool-icon-sm icon-yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span class="tool-badge badge-pro">PRO</span></div>
+        <h3>AHT</h3>
+        <span class="en-title">Average Handle Time</span>
+        <p>Среднее время обработки контакта. Гонка за AHT убивает FCR.</p>
+        <span class="benchmark-tag">Норма: 4-7 минут</span>
+        <a href="#" class="btn btn-ghost btn-block">Открыть</a>
+      </div>
+    </div>
+
+  </section>
 
   <footer class="site-footer">
     <div class="footer-inner">
@@ -94,7 +176,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/erlang.js"></script>
   <script src="assets/js/menu.js"></script>
 </body>
 </html>
