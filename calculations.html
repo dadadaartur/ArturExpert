@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расчеты показателей — ArturExpert</title>
+  <meta name="description" content="Калькулятор Erlang C: сколько операторов нужно для соблюдения SLA и оптимальной загрузки.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/>
+          </svg>
+        </span>
+        <span>Artur<b>Expert</b></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="calculations.html" class="active">Расчеты</a>
+        <a href="index.html#materials">Материалы</a>
+        <a href="index.html#about">О журнале</a>
+      </nav>
+      <a href="index.html" class="btn btn-ghost btn-sm header-cta">На главную</a>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs">
+    <a href="index.html">Главная</a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    <span>Расчеты показателей</span>
+  </nav>
+
+  <section class="calc-hero">
+    <h1>Расчеты показателей</h1>
+    <p>Готовые калькуляторы для руководителей клиентского сервиса. Сейчас доступен Erlang C — скоро добавим KPI и стоимость часа.</p>
+  </section>
+
+  <div class="calc-layout">
+
+    <!-- ЛЕВАЯ ПАНЕЛЬ -->
+    <aside class="input-panel">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/>
+        </svg>
+        Параметры нагрузки
+      </h2>
+
+      <div class="form-group">
+        <label>Звонков в час <span>Volume</span></label>
+        <div class="input-wrapper">
+          <input type="number" id="calls" value="100" min="1">
+          <div class="input-suffix">шт</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Среднее время разговора <span>AHT</span></label>
+        <div class="input-wrapper">
+          <input type="number" id="aht" value="300" min="1">
+          <div class="input-suffix">сек</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Время после звонка <span>ACW</span></label>
+        <div class="input-wrapper">
+          <input type="number" id="acw" value="60" min="0">
+          <div class="input-suffix">сек</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        </svg>
+        Целевые показатели (SLA)
+      </h2>
+
+      <div class="form-group">
+        <label>Целевой SLA <span>% звонков</span></label>
+        <div class="input-wrapper">
+          <input type="number" id="target-sla" value="80" min="1" max="100">
+          <div class="input-suffix">%</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Ответить за <span>Target Time</span></label>
+        <div class="input-wrapper">
+          <input type="number" id="target-time" value="20" min="1">
+          <div class="input-suffix">сек</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ПРАВАЯ ПАНЕЛЬ -->
+    <section class="results-panel">
+
+      <div class="kpi-grid">
+        <div class="kpi-card primary">
+          <div class="kpi-title">Нужно операторов</div>
+          <div class="kpi-value" id="res-agents">0</div>
+          <div class="kpi-sub">Для соблюдения SLA</div>
+        </div>
+        <div class="kpi-card success">
+          <div class="kpi-title">Фактический SLA</div>
+          <div class="kpi-value" id="res-sla">0%</div>
+          <div class="kpi-sub">При этом штате</div>
+        </div>
+        <div class="kpi-card warning">
+          <div class="kpi-title">Загрузка (Occupancy)</div>
+          <div class="kpi-value" id="res-occupancy">0%</div>
+          <div class="kpi-sub">Оптимально: 75–85%</div>
+        </div>
+        <div class="kpi-card danger">
+          <div class="kpi-title">Ср. время ожидания</div>
+          <div class="kpi-value" id="res-asa">0с</div>
+          <div class="kpi-sub">Average Speed of Answer</div>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="insight-text" id="insight-text">
+          Введите данные, чтобы увидеть рекомендации.
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-header">
+          <div class="chart-title">Зависимость SLA от количества операторов</div>
+          <div class="chart-legend">Цель: <span id="legend-target">80% / 20 сек</span></div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="slaChart"></canvas>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" style="width:32px;height:32px;border-radius:9px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/>
+          </svg>
+        </span>
+        Artur<b style="color:var(--coral)">Expert</b>
+      </div>
+      <div class="footer-note">© 2026 ArturExpert · Расчеты соответствуют модели Erlang C</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/erlang.js"></script>
+</body>
+</html>
